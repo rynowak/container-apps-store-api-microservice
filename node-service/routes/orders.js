@@ -25,8 +25,8 @@ router.post('/', async function(req, res, next) {
     var order = req.body;
     order['location'] = 'Seattle';
     order['priority'] = 'Standard';
-    console.log('Service invoke POST to: ' + `${daprSidecar}/order?id=${req.query.id}` + ', with data: ' +  JSON.stringify(order));
-    var data = await axios.post(`${daprSidecar}/order?id=${req.query.id}`, order, {
+    console.log('Service invoke POST to: ' + `${daprSidecar}/order?id=${order.id}` + ', with data: ' +  JSON.stringify(order));
+    var data = await axios.post(`${daprSidecar}/order?id=${order.id}`, order, {
       headers: {'dapr-app-id': `${orderService}`} //sets app name for service discovery
     });
   
