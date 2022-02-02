@@ -23,3 +23,9 @@ stages:
         image: rynowak/python
   bicep:
     template: iac/app.bicep
+  profiles:
+    dev:
+      build:
+        node_service_build:
+          docker:
+            dockerFile: Dockerfile.dev
